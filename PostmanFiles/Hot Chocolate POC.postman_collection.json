@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "c250856e-69f3-4a60-bab1-e7b027a02e57",
+		"name": "Hot Chocolate POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7071/api/HttpRequest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{ myObject {iD firstName lastName } }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/HttpRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"HttpRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateAddress($member: Member!, $address: Address!) {\n    createAddress(member: $member, address: $address) {\n        id name isEditable isEditing addressLine city state zip\n    }\n}\n{\n    \"member\":  {\n        \"id\": 1,\n        \"firstName\": \"Phil\",\n        \"lastName\": \"Jackson\",\n        \"title\": \"Coach\",\n        \"alertsOn\": true,\n        \"pending\": false\n    },\n    \"address\" : \n    { \n            \"id\": 1,\n            \"name\": \"Home\",\n            \"isEditable\": false,\n            \"isEditing\": false,\n            \"addressLine\": \"2700 Point Dr\",\n            \"city\": \"Highland Park\",\n            \"state\": \"IL\",\n            \"zip\": \"60035\"\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/Member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"Member"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
