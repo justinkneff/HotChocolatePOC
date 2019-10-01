@@ -1,3 +1,14 @@
+Make sure to create the local.settings.json file at the root level of the project
+
+````json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    }
+}
+````
 # HotChocolatePOC
 Code First Approach
 https://hotchocolate.io/docs/code-first
@@ -5,7 +16,7 @@ https://hotchocolate.io/docs/code-first
 Following this function
 https://github.com/OneCyrus/GraphQL-AzureFunctions-HotChocolate
 
-Returns Stack Exception on runtime
+Returns Stack Exception on runtime when running 10.1.0
 ````
 {
     "data": {},
