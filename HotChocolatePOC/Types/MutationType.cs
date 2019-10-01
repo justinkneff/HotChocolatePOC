@@ -9,10 +9,10 @@ namespace HotChocolatePOC.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Mutation> descriptor)
         {
-            descriptor.Field(t => t.CreateAddress(default, default))
-                .Type<NonNullType<AddressType>>()
-                .Argument("member", a => a.Type<NonNullType<MemberInputType>>())
-                .Argument("address", a => a.Type<NonNullType<AddressInputType>>());
+            descriptor.Field(t => t.CreateAddress(default, default));
+            //.Type<NonNullType<AddressType>>();
+            //.Argument("member", a => a.Type<NonNullType<MemberInputType>>())
+            //.Argument("address", a => a.Type<NonNullType<AddressInputType>>());
         }
     }
 }

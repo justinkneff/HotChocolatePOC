@@ -23,10 +23,11 @@ namespace HotChocolatePOC
             services.AddGraphQL(sp => SchemaBuilder.New()
                 .AddServices(sp)
                 .AddQueryType<QueryType>() // Can only have one QueryType object
-                .AddMutationType<MutationType>()
                 .AddType<MyObjectType>()
                 .AddType<MyOtherObjectType>()
                 .AddType<ExpensesType>()
+                .AddType<MemberInputType>()
+                .AddType<AddressInputType>()
                 .Create());
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using HotChocolate.Execution;
@@ -31,8 +32,13 @@ namespace HotChocolatePOC
 
             log.LogInformation(graphQLRequest.Query);
 
+            var variables = graphQLRequest.Variables != null
+                ? graphQLRequest.Variables.ToObject<Dictionary<string, object>>()
+                : new Dictionary<string, object>();
+
             var query = QueryRequestBuilder.New()
                 .SetQuery(graphQLRequest.Query)
+                .SetVariableValues(variables)
                 .SetOperation(graphQLRequest.OperationName);
 
             var result = await _executor.ExecuteAsync(query.Create());
