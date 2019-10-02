@@ -16,6 +16,36 @@ https://hotchocolate.io/docs/code-first
 Following this function
 https://github.com/OneCyrus/GraphQL-AzureFunctions-HotChocolate
 
+#### Returns StackOverflow Exception when requesting the mutation
+Query
+````
+mutation createAddress($member: MemberInput!, $address: AddressInput!) {
+    createAddress(member: $member, address: $address) {
+        id name addressLine city state zip
+    }
+}
+````
+GraphQL Variables
+````json
+{
+    "member":  {
+        "id": 1,
+        "firstName": "Phil",
+        "lastName": "Jackson",
+        "title": "Coach"
+    },
+    "address" : 
+    { 
+            "id": 1,
+            "name": "Home",
+            "addressLine": "2700 Point Dr",
+            "city": "Highland Park",
+            "state": "IL",
+            "zip": "60035"
+    }
+}
+````
+
 Returns Stack Exception on runtime when running 10.1.0
 ````
 {
